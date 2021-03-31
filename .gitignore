@@ -126,3 +126,7 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.idea/.gitignore
+/.idea/front-end-rcra.iml
+/.idea/modules.xml
+/.idea/vcs.xml
