@@ -10,7 +10,7 @@ export const gameListToRomReducer = produce((draft, action) => {
         }
 
         case 'REMOVE_ROM': {
-            draft = draft.filter(r => r !== action.payload)
+            draft = draft.filter(r => r.rom_id !== action.payload.rom_id)
             return draft;
 
         }

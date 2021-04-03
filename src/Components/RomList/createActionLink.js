@@ -1,7 +1,8 @@
 const ids2hash = ids => {
     if (ids.length === 0) return false;
+
     // Получаем максимальное значение
-    let sorted = [...ids];
+    let sorted = ids.map(r=>r.rom_id);
     sorted = sorted.sort((x, y) => x -  y);
     let max_id = sorted[sorted.length - 1];
     let hash = "";

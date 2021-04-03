@@ -45,9 +45,9 @@ export const RomsList = ({roms} = []) => {
             {paginatedGames.map((r, k) => {
                 return <li key={k}>
                     {r.file} - {r.description || ''}
-                    {gamesToRom.includes(r.rom_id) ?
-                        <button onClick={() => handleRom.removeRom(r.rom_id)}>Remove</button> :
-                        <button onClick={() => handleRom.addRom(r.rom_id)}>Add</button>}
+                    {gamesToRom.includes(r) ?
+                        <button onClick={() => handleRom.removeRom(r)}>Remove</button> :
+                        <button onClick={() => handleRom.addRom(r)}>Add</button>}
                 </li>
             })}
         </ul>

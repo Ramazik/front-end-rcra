@@ -3,16 +3,13 @@ import {useEffect} from "react";
 import {fetchGamesFromApi} from "./Services";
 import {useDispatch, useSelector} from "react-redux";
 import {RomsList} from "./Components/RomList/RomsList";
+import {GamesToRom} from "./Components/GamesToRom/GamesToRom";
 
 
 function App() {
 
     const dispatch = useDispatch();
     const {games} = useSelector(r=>r.gameList)
-
-    useEffect(()=>{
-        console.log(games.length)
-    }, [games])
     useEffect(() => {
         fetchGamesFromApi()
             .then(r => {
@@ -26,6 +23,7 @@ function App() {
     return (
         <div className="App">
             {games.length > 0 ? <RomsList roms={games} />: 'Loading'}
+            <GamesToRom />
         </div>
     );
 }
