@@ -1,13 +1,18 @@
 import './App.css';
 import {useEffect} from "react";
 import {fetchGamesFromApi} from "./Services";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {RomsList} from "./Components/RomList/RomsList";
 
 
 function App() {
 
     const dispatch = useDispatch();
+    const {games} = useSelector(r=>r.gameList)
 
+    useEffect(()=>{
+        console.log(games.length)
+    }, [games])
     useEffect(() => {
         fetchGamesFromApi()
             .then(r => {
@@ -20,7 +25,7 @@ function App() {
 
     return (
         <div className="App">
-            Hello world
+            {games.length > 0 ? <RomsList roms={games} />: 'Loading'}
         </div>
     );
 }
