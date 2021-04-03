@@ -8,6 +8,10 @@ import {region} from "../../Helpers/region";
 const styles = {
     listItem: {
         padding:"10px 20px",
+    },
+    smallGray: {
+        fontSize: 12,
+        color: "#909090"
     }
 }
 
@@ -54,13 +58,16 @@ export const RomsList = ({roms} = []) => {
         <ul>
             {paginatedGames.map((r, k) => {
                 return <li key={k} style={styles.listItem}>
-                    {r.regions.map((reg, k)=><span key={k}>{region(reg)}</span>)}
-                    {r.file} - {r.description || ''}
+                    <span>{r.rom_id} </span>
+                    {r.regions.map((reg, k)=><span key={k}> {region(reg)} </span>)}
+                    {r.file}
+                    <p style={styles.smallGray}>{r.description || ''}</p>
                     {gamesToRom.includes(r) ?
                         <button onClick={() => handleRom.removeRom(r)}>Remove</button> :
                         <button onClick={() => handleRom.addRom(r)}>Add</button>}
                 </li>
             })}
+
         </ul>
         {roms.length > 0 && <ReactPaginate
             pageCount={Math.ceil(roms.length / 10)}
@@ -74,4 +81,4 @@ export const RomsList = ({roms} = []) => {
 
     </div>
 
-}
+};
