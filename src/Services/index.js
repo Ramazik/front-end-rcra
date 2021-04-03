@@ -18,3 +18,7 @@ export const fetchGamesFromApi = key => {
     return axios.get(`${url}roms/`, config)
 
 }
+
+export const hashToIds = hash => {
+    return axios.get(`${url}hash2ids?hash=${hash}`, config)
+}

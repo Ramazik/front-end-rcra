@@ -2,6 +2,7 @@ import ReactPaginate from 'react-paginate';
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import ids2hash from "./createActionLink";
+import {hashToIds} from "../../Services";
 
 
 export const RomsList = ({roms} = []) => {
@@ -19,7 +20,10 @@ export const RomsList = ({roms} = []) => {
     }, [selected])
 
     const handleMakeRom = (roms) => {
-        console.log(ids2hash(roms))
+        hashToIds(ids2hash(roms))
+            .then(r=>{
+                console.log(r)
+            })
 
     }
 

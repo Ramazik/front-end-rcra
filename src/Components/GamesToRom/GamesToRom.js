@@ -4,6 +4,6 @@ export const GamesToRom = () => {
     const {gamesToRom} = useSelector(r=>r)
     console.log(gamesToRom)
     return <>
-        {gamesToRom.length<1? 'empty': <ul>{gamesToRom.map((r, k) => <li key={k}>{r.name}</li>)}</ul>}
+        {gamesToRom.length<1? 'empty': <ul>{gamesToRom.map((r, k) => <li key={k}>{r.name} - {r.rom_id}</li>)}</ul>}
     </>
 }
