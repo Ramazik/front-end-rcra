@@ -3,7 +3,13 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import ids2hash from "./createActionLink";
 import {hashToIds} from "../../Services";
+import {region} from "../../Helpers/region";
 
+const styles = {
+    listItem: {
+        padding:"10px 20px",
+    }
+}
 
 export const RomsList = ({roms} = []) => {
 
@@ -47,7 +53,8 @@ export const RomsList = ({roms} = []) => {
     return <div>
         <ul>
             {paginatedGames.map((r, k) => {
-                return <li key={k}>
+                return <li key={k} style={styles.listItem}>
+                    {r.regions.map((reg, k)=><span key={k}>{region(reg)}</span>)}
                     {r.file} - {r.description || ''}
                     {gamesToRom.includes(r) ?
                         <button onClick={() => handleRom.removeRom(r)}>Remove</button> :

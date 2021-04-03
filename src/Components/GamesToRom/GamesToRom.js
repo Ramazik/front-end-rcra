@@ -1,5 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 
+const styles = {
+    listItem: {
+        padding:"10px 20px",
+    }
+}
+
 export const GamesToRom = () => {
     const {gamesToRom} = useSelector(r=>r)
     const dispatch = useDispatch();
@@ -9,7 +15,7 @@ export const GamesToRom = () => {
         })
     }
     return <>
-        {gamesToRom.length<1? 'empty': <ul>{gamesToRom.map((r, k) => <li key={k}>{r.name} - {r.rom_id}</li>)}</ul>}
+        {gamesToRom.length<1? 'empty': <ul>{gamesToRom.map((r, k) => <li key={k} style={styles.listItem}>{r.name} - {r.rom_id}</li>)}</ul>}
         <button onClick={handleClearRomsList}>Clear list</button>
     </>
 }
