@@ -14,6 +14,11 @@ export const gameListToRomReducer = produce((draft, action) => {
             return draft;
 
         }
+        case 'CLEAR_ROMS_LIST': {
+            draft = []
+            return draft;
+
+        }
 
         default: {
             return draft;
