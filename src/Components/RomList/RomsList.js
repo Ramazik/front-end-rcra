@@ -1,6 +1,7 @@
 import ReactPaginate from 'react-paginate';
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import ids2hash from "./createActionLink";
 
 
 export const RomsList = ({roms} = []) => {
@@ -16,6 +17,11 @@ export const RomsList = ({roms} = []) => {
             ...roms.slice(selected * perPage, selected * perPage + perPage)
         ])
     }, [selected])
+
+    const handleMakeRom = (roms) => {
+        console.log(ids2hash(roms))
+
+    }
 
 
     const handleRom = {
@@ -52,6 +58,9 @@ export const RomsList = ({roms} = []) => {
                 setSelected(e.selected)
             }}
             pageRangeDisplayed={perPage}/>}
+
+            <button onClick={()=>{handleMakeRom(gamesToRom)}}>Create Rom</button>
+
     </div>
 
 }
