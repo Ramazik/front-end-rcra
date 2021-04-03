@@ -59,7 +59,6 @@ export const RomsList = ({roms} = []) => {
             {paginatedGames.map((r, k) => {
                 return <li key={k} style={styles.listItem}>
                     <span>{r.rom_id} </span>
-                    {r.regions.map((reg, k)=><span key={k}> {region(reg)} </span>)}
                     {r.file}
                     <p style={styles.smallGray}>{r.description || ''}</p>
                     {gamesToRom.includes(r) ?

@@ -15,7 +15,7 @@ function App() {
             .then(r => {
                 dispatch({
                     type: 'FETCH_ROMS_LIST',
-                    payload: r.data.roms,
+                    payload: r.data.games,
                 })
             })
     }, [])

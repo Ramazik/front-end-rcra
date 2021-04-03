@@ -15,7 +15,7 @@ export const fetchGamesFromApi = key => {
         mode: "no-cors",
         ...config
     })*/
-    return axios.get(`${url}roms/`, config)
+    return axios.get(`${url}games/`, config)
 
 }
 
